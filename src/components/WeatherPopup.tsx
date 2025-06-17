@@ -5,7 +5,6 @@ type WeatherPopupProps = {
 
 export default function WeatherPopup({ city, forecast }: WeatherPopupProps) {
   const today = forecast?.list[0];
-  console.log(today)
   const tomorrow = forecast?.list[8];
   return (
     <div className="text-sm">

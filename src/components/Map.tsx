@@ -30,6 +30,7 @@ export default function MapView({ lat, lon, name }: MarkerProps) {
       longitude: lon,
     }));
     setPopupInfo(null);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lat, lon]);
 
   const fetchWeather = async () => {

@@ -2,9 +2,11 @@
 import { useEffect, useState } from "react";
 import Map, { Marker, Popup } from "react-map-gl";
 import WeatherPopup from "./WeatherPopup";
+import Forecast from "./interface";
 
 const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN!;
 const WEATHER_API = process.env.NEXT_PUBLIC_WEATHER_API!;
+
 
 type MarkerProps = {
   lat: number;
@@ -20,7 +22,7 @@ export default function MapView({ lat, lon, name }: MarkerProps) {
   });
   const [popupInfo, setPopupInfo] = useState<{
     name: string;
-    forecast: any;
+    forecast: Forecast;
   } | null>(null);
 
   useEffect(() => {
@@ -30,7 +32,6 @@ export default function MapView({ lat, lon, name }: MarkerProps) {
       longitude: lon,
     }));
     setPopupInfo(null);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lat, lon]);
 
   const fetchWeather = async () => {

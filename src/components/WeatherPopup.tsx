@@ -1,6 +1,8 @@
+import Forecast from "./interface";
+
 type WeatherPopupProps = {
   city: string;
-  forecast: any;
+  forecast: Forecast;
 };
 
 export default function WeatherPopup({ city, forecast }: WeatherPopupProps) {
